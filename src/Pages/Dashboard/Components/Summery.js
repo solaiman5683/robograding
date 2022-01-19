@@ -2,12 +2,15 @@ import { Button } from '@mui/material';
 import React from 'react';
 
 const Summary = ({ setStep, service, cards, shipping }) => {
-    const total = () => {
-        const count = cards.reduce((acc, card) => {
-								return acc + Number(card.quantity);
-							}, 0);
-							return count * Number(service);
-    }
+	const total = () => {
+		const count = cards.reduce((acc, card) => {
+			return acc + Number(card.quantity);
+		}, 0);
+		return count * Number(service);
+	};
+	const price = cards.reduce((acc, card) => {
+		return acc + Number(card.quantity) * Number(card.price);
+	}, 0);
 	return (
 		<div className='summary'>
 			<h4 className='summary-header'>Summary</h4>
@@ -15,7 +18,7 @@ const Summary = ({ setStep, service, cards, shipping }) => {
 				<div className='service-level'>
 					<div>
 						<h5>
-							{shipping ? `$${total()} Total Declared Value` : 'Service Level'}
+							{shipping ? `$${price} Total Declared Value` : 'Service Level'}
 						</h5>
 						<Button onClick={() => setStep(1)}>Edit</Button>
 					</div>
