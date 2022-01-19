@@ -1,4 +1,5 @@
-import { Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Button, IconButton } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -8,7 +9,7 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Style.css';
 
-const Navigation = () => {
+const Navigation = ({ setOpenNav }) => {
 	return (
 		<AppBar
 			position='static'
@@ -18,25 +19,35 @@ const Navigation = () => {
 			}}>
 			<Container maxWidth='xxl'>
 				<Toolbar disableGutters>
+					<IconButton
+						size='large'
+						aria-label='account of current user'
+						aria-controls='menu-appbar'
+						aria-haspopup='true'
+						sx={{ display: { sm: 'block', md: 'none' } }}
+						onClick={() => setOpenNav(value => !value)}
+						color='inherit'>
+						<MenuIcon />
+					</IconButton>
 					<Typography
 						variant='h6'
 						noWrap
 						component='div'
-						sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+						sx={{ mr: 2, display: 'flex' }}>
 						<img src='/images/robo.svg' height='54px' alt='' />
 					</Typography>
 
 					<Box
 						sx={{
 							flexGrow: 1,
-							display: 'flex',
+							display: { xs: 'none', sm: 'none', md: 'flex' },
 							justifyContent: 'center',
 						}}>
 						<a href='/'>Live Feed</a>
 						<a href='/'>POP Report</a>
 					</Box>
 
-					<Box sx={{ flexGrow: 0 }}>
+					<Box sx={{ flexGrow: 0, ml: 'auto' }}>
 						<NavLink to='/dashboard/submission/new'>
 							<Button
 								variant='outlined'
@@ -57,11 +68,17 @@ const Navigation = () => {
 									data-testid='FileUploadOutlinedIcon'>
 									<path d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'></path>
 								</svg>
-								Submit
+								<Typography
+									variant='body2'
+									sx={{ display: { xs: 'none', md: 'block' } }}>
+									Submit
+								</Typography>
 							</Button>
 						</NavLink>
 					</Box>
-					<img src='/images/avatar.svg' alt='' />
+					<Box sx={{ display: { xs: 'none' ,md:'block'} }}>
+						<img src='/images/avatar.svg' alt='' />
+					</Box>
 				</Toolbar>
 			</Container>
 		</AppBar>

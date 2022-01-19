@@ -2,6 +2,7 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+
 import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import StyleIcon from '@mui/icons-material/Style';
@@ -16,6 +17,7 @@ import {
 import { Box } from '@mui/system';
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AddedCard from '../Components/AddedCard';
 import CardResult from '../Components/CardResult';
 import ShippingForm from '../Components/ShippingForm';
@@ -83,7 +85,9 @@ const NewSubmission = () => {
 							noWrap
 							component='div'
 							sx={{ mr: 2, display: 'flex' }}>
-							<img src='/images/robo.svg' height='66px' alt='' />
+							<Link to='/dashboard'>
+								<img src='/images/robo.svg' height='66px' alt='' />
+							</Link>
 						</Typography>
 						<Typography
 							variant='h6'
