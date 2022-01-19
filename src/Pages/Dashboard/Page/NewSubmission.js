@@ -1,6 +1,7 @@
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import SearchIcon from '@mui/icons-material/Search';
@@ -42,7 +43,11 @@ const NewSubmission = () => {
 		setOpen(false);
 		setCardImage('');
 		e.target.reset();
-	};
+    };
+    const handleRemoveCard = id => {
+        const newCards = cards.filter(card => card.id !== id);
+        setCards(newCards);
+    };
 	const handleImage = e => {
 		const reader = new FileReader();
 		const file = e.target.files[0];
@@ -404,7 +409,7 @@ const NewSubmission = () => {
 														</td>
 														<td>
 															<div className='card-info'>
-																<img src={card.image} width='100px' alt='' />
+																<img src={card.image} width='100px' style={{maxHeight:'100px'}} alt='' />
 																<div>
 																	<h4>{card.name}</h4>
 																	<p>Added Manually</p>
@@ -412,18 +417,32 @@ const NewSubmission = () => {
 																</div>
 															</div>
 														</td>
-														<td>
-															<input
-																type='number'
-																value={card.price}
-																className='card-price'
-																onChange={e => {
-																	let newCards = [...cards];
-																	newCards[index].price = e.target.value;
-																	console.log(newCards);
-																	setCards(newCards);
-																}}
-															/>
+														<td
+															style={{ display: 'flex', alignItems: 'center' }}>
+															<div>
+																<input
+																	type='number'
+																	value={card.price}
+																	className='card-price'
+																	onChange={e => {
+																		let newCards = [...cards];
+																		newCards[index].price = e.target.value;
+																		console.log(newCards);
+																		setCards(newCards);
+																	}}
+																/>
+															</div>
+															<Button
+																onClick={() => handleRemoveCard(card.id)}
+																sx={{
+																	borderRadius: '25px',
+																	minHeight: '25px',
+																	minWidth: '25px',
+																	m: 1,
+																	p: 1,
+																}}>
+																<DeleteTwoToneIcon />
+															</Button>
 														</td>
 													</tr>
 												))}
@@ -486,12 +505,21 @@ const NewSubmission = () => {
 										<div className='phone'>
 											<label>Phone</label>
 											<br />
-											<input type='text' name='apt' placeholder='Phone Number' />
+											<input
+												type='text'
+												name='apt'
+												placeholder='Phone Number'
+											/>
 										</div>
 									</form>
 								</Grid>
 								<Grid item xs={12} sm={4}>
-									<Summary setStep={setStep} service={service} cards={cards} shipping={true} />
+									<Summary
+										setStep={setStep}
+										service={service}
+										cards={cards}
+										shipping={true}
+									/>
 								</Grid>
 							</Grid>
 						</div>
