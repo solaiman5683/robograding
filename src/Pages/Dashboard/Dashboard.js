@@ -82,7 +82,7 @@ const Dashboard = () => {
                             coomingSoon={true}
 						/>
 					</Grid>
-					<Grid item md={8} sx={{ p: 2 }}>
+					<Grid item md={8} sm={12} sx={{ p: 2,mt:{sm:4, xs:4} }}>
 						<Outlet />
 					</Grid>
 				</Grid>
