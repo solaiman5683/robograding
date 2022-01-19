@@ -6,14 +6,15 @@ import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import StyleIcon from '@mui/icons-material/Style';
 import {
-    AppBar,
-    Button,
-    Container,
-    Grid, Radio,
-    Toolbar,
-    Typography
+	AppBar,
+	Button,
+	Container,
+	Grid, Radio,
+	Toolbar,
+	Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
+import axios from 'axios';
 import React from 'react';
 import AddedCard from '../Components/AddedCard';
 import CardResult from '../Components/CardResult';
@@ -28,6 +29,7 @@ const NewSubmission = () => {
 	const [cardDes, setCardDes] = React.useState('');
 	const [cardImage, setCardImage] = React.useState('');
 	const [cards, setCards] = React.useState([]);
+	const [cardImgData, setCardImgData] = React.useState('');
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -39,6 +41,16 @@ const NewSubmission = () => {
 			quantity: '1',
 			price: '1',
 		};
+		const formData = new FormData();
+		formData.append('name', cardName);
+		formData.append('description', cardName);
+		formData.append('image', cardImgData);
+		formData.append('quantity', card.quantity);
+		formData.append('price', card.price);
+		axios
+			.post('http://localhost:5000/cards/add', formData)
+			.then(res => console.log(res.data));
+
 		setCards([...cards, card]);
 		setOpen(false);
 		setCardImage('');
@@ -47,6 +59,7 @@ const NewSubmission = () => {
 	const handleImage = e => {
 		const reader = new FileReader();
 		const file = e.target.files[0];
+		setCardImgData(file);
 		reader.onloadend = () => {
 			if (reader.readyState === 2) {
 				setCardImage(reader.result);

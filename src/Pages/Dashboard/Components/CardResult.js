@@ -48,8 +48,8 @@ const CardResult = ({
 											<div className='image-upload-btn'>
 												<input
 													accept='image/*'
-													multiple=''
 													type='file'
+													name='image'
 													hidden
 													onChange={handleImage}
 												/>
@@ -86,8 +86,8 @@ const CardResult = ({
 														Replace
 														<input
 															accept='image/*'
-															multiple=''
 															type='file'
+															name='image'
 															hidden
 															onChange={handleImage}
 														/>
