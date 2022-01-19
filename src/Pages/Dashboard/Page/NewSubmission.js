@@ -95,17 +95,17 @@ const NewSubmission = () => {
 					</Toolbar>
 				</Container>
 			</AppBar>
-			<h1
+			<h2
+				className='submission-title'
 				style={{
 					background:
 						'linear-gradient(106.54deg, #140078 -4.67%, #6C31BC 112.32%)',
 					color: '#fff',
 					textAlign: 'center',
-					padding: '100px',
 					borderBottom: '3px solid #20BFB8',
 				}}>
 				Submit Cards For Grading
-			</h1>
+			</h2>
 
 			<div className='timeline'>
 				<div className={`timeline-item ${step === 1 && 'active'}`}>
