@@ -43,12 +43,12 @@ const NewSubmission = () => {
 		};
 		const formData = new FormData();
 		formData.append('name', cardName);
-		formData.append('description', cardName);
+		formData.append('description', cardDes);
 		formData.append('image', cardImgData);
 		formData.append('quantity', card.quantity);
 		formData.append('price', card.price);
 		axios
-			.post('http://localhost:5000/cards/add', formData)
+			.post('https://still-temple-91920.herokuapp.com/cards/add', formData)
 			.then(res => console.log(res.data));
 
 		setCards([...cards, card]);
