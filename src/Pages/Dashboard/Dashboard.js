@@ -8,7 +8,8 @@ import './Style.css';
 
 const Dashboard = () => {
 	const params = useParams();
-	const link = params['*'];
+    const link = params['*'];
+    console.log(link);
 	return (
 		<div>
 			<Navigation />
@@ -21,7 +22,6 @@ const Dashboard = () => {
 							border: '1px solid rgba(0, 0, 0, 0.12)',
 							borderRadius: '4px',
                         }}
-                        spacing={4}
                     >
 						<Box
 							sx={{

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthContext';
 import Auth from './Pages/Auth/Auth';
@@ -13,24 +13,25 @@ import Wallet from './Pages/Dashboard/Page/Wallet';
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/auth/*" element={<Auth />} >
-            <Route path='sign-in' element={ <SignIn/>}/>
-            <Route path='sign-up' element={ <SignUp/>}/>
-          </Route>
-          <Route path="/dashboard/*" element={<Dashboard/>}>
-            <Route path="submission" element={<Submissions/>}/>
-            <Route path="your-cards" element={<Cards/>}/>
-            <Route path="wallet" element={<Wallet/>}/>
-            <Route path="profile" element={<Profile/>}/>
-          </Route>
-          <Route path="/dashboard/submission/new" element={<NewSubmission/>}/>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
-  );
+		<AuthProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/auth/*' element={<Auth />}>
+						<Route path='sign-in' element={<SignIn />} />
+						<Route path='sign-up' element={<SignUp />} />
+					</Route>
+					<Route path='/dashboard/*' element={<Dashboard />}>
+						<Route path='*' element={<Navigate to='submission' />} />
+						<Route path='submission' element={<Submissions />} />
+						<Route path='your-cards' element={<Cards />} />
+						<Route path='wallet' element={<Wallet />} />
+						<Route path='profile' element={<Profile />} />
+					</Route>
+					<Route path='/dashboard/submission/new' element={<NewSubmission />} />
+				</Routes>
+			</BrowserRouter>
+		</AuthProvider>
+	);
 }
 
 export default App;
