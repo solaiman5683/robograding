@@ -1,5 +1,5 @@
 import {
-    createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile
+	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import firebaseInitialize from '../Firebase/firebase.config';
@@ -12,7 +12,9 @@ const useFirebase = () => {
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(true);
 
-	const register = (name, email, password, history, location) => {
+	console.log(user);
+
+	const register = (name, email, password) => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then(res => {
 				// Signed in
@@ -33,7 +35,7 @@ const useFirebase = () => {
 			});
 	};
 
-	const login = (email, password, history, location) => {
+	const login = (email, password) => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then(res => {
 				// Signed in

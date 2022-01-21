@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 
 const Auth = () => {
-	const user = useAuth();
+	const {user} = useAuth();
 	console.log(user);
 	return (
 		<Grid
