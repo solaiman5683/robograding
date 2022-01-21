@@ -1,3 +1,4 @@
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Context/AuthContext';
@@ -12,8 +13,14 @@ import Submissions from './Pages/Dashboard/Page/Submissions';
 import Wallet from './Pages/Dashboard/Page/Wallet';
 
 function App() {
+	const initialOptions = {
+		"client-id": "AZgUd3pUmc1dD3yyloX6QR71lM5zwA4w-A9hCgTVvEjwW4x67HceHQKAJd80ldtcnS3G5Zq1uhsO-vOr",
+		currency: "USD",
+		intent: "capture",
+	};
   return (
-		<AuthProvider>
+	  <AuthProvider>
+		  <PayPalScriptProvider options={initialOptions}>
 			<BrowserRouter>
 				<Routes>
 					<Route path='*' element={<Navigate to='dashboard' />} />
@@ -30,7 +37,8 @@ function App() {
 					</Route>
 					<Route path='/dashboard/submission/new' element={<NewSubmission />} />
 				</Routes>
-			</BrowserRouter>
+			  </BrowserRouter>
+			  </PayPalScriptProvider>
 		</AuthProvider>
 	);
 }

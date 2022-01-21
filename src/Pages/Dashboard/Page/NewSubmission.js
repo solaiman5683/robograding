@@ -2,7 +2,6 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import CreditCardOutlinedIcon from '@mui/icons-material/CreditCardOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-
 import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import StyleIcon from '@mui/icons-material/Style';
@@ -10,7 +9,8 @@ import {
 	AppBar,
 	Button,
 	Container,
-	Grid, Radio,
+	Grid,
+	Radio,
 	Toolbar,
 	Typography
 } from '@mui/material';
@@ -20,6 +20,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AddedCard from '../Components/AddedCard';
 import CardResult from '../Components/CardResult';
+import PayPal from '../Components/PayPal';
 import ShippingForm from '../Components/ShippingForm';
 import Summary from '../Components/Summery';
 
@@ -57,7 +58,7 @@ const NewSubmission = () => {
 		setOpen(false);
 		setCardImage('');
 		e.target.reset();
-    };
+	};
 	const handleImage = e => {
 		const reader = new FileReader();
 		const file = e.target.files[0];
@@ -309,8 +310,71 @@ const NewSubmission = () => {
 								</Grid>
 							</Grid>
 						</div>
+						<div className={`payment ${step === 4 ? 'active' : ''}`}>
+							<Grid container spacing={4}>
+								<Grid item xs={12} md={8}>
+									<h2>Enter Payment Details</h2>
+									<br />
+									<Grid container spacing={2}>
+										<Grid item xs={12} md={6}>
+											<Button
+												className={`service-item ${
+													service === '100' && 'active'
+												}`}>
+												<div className='left' style={{ width: '100%' }}>
+													<Radio
+														checked={false}
+														value='250'
+														name='radio-buttons'
+														inputProps={{ 'aria-label': 'A' }}
+													/>
+													<h5>Credit or Debit Card</h5>
+												</div>
+												<div className='right'></div>
+											</Button>
+										</Grid>
+										<Grid item xs={12} md={6}>
+											<Button className={`service-item active`}>
+												<div className='left'>
+													<Radio
+														checked={true}
+														value='100'
+														name='radio-buttons'
+														inputProps={{ 'aria-label': 'A' }}
+													/>
+													<h5>Paypal</h5>
+												</div>
+												<div className='right'></div>
+											</Button>
+										</Grid>
+									</Grid>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<Summary
+										setStep={setStep}
+										service={service}
+										cards={cards}
+										shipping={true}
+									/>
+								</Grid>
+							</Grid>
+						</div>
+						<div className={`review ${step === 5 ? 'active' : ''}`}>
+							<Grid container>
+								<Grid item xs={12} md={8}>
+									<h2>Enter Payment Details</h2>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<div className='summary'>
+										<h4 className='summary-header'>Summary</h4>
+										<div className='summary-content'>
+											<PayPal currency="USD" showSpinner={false} amount={20} />
+										</div>
+									</div>
+								</Grid>
+							</Grid>
+						</div>
 					</div>
-
 					<hr />
 					<div className='footer'>
 						<Button
