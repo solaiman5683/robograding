@@ -1,18 +1,22 @@
+import CloseIcon from '@mui/icons-material/Close';
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { useAuth } from '../../Context/AuthContext';
 import ItemButton from './Components/Button';
-import CloseIcon from '@mui/icons-material/Close';
 import Navigation from './Navigation';
 import './Style.css';
 
 const Dashboard = () => {
 	const params = useParams();
+	const { user } = useAuth();
 	const [openNav, setOpenNav] = React.useState(false);
-
+	const navigate = useNavigate();
+	if (!user?.email) {
+		navigate('/auth');
+	}
 	const link = params['*'];
-	console.log(link);
 	return (
 		<div>
 			<Navigation setOpenNav={setOpenNav} />
@@ -23,7 +27,7 @@ const Dashboard = () => {
 						md={4}
 						sm={12}
 						sx={{
-							display: { sm: 'none',xs:'none', md: 'block' },
+							display: { sm: 'none', xs: 'none', md: 'block' },
 							border: '1px solid rgba(0, 0, 0, 0.12)',
 							borderRadius: '4px',
 						}}>

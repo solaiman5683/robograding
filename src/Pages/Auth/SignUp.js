@@ -1,14 +1,18 @@
 import { Typography } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 import './Style.css';
 
 const SignUp = () => {
-	const {register} = useAuth()
+	const {register, user} = useAuth()
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		register(e.target.name.value,e.target.email.value, e.target.password.value)
+	}
+	const navigate = useNavigate();
+	if (user?.email) {
+		navigate('/dashboard');
 	}
 	return (
 		<div style={{ width: '50%', textAlign: 'center' }}>

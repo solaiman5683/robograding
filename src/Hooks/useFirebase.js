@@ -12,8 +12,6 @@ const useFirebase = () => {
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(true);
 
-	console.log(user);
-
 	const register = (name, email, password) => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then(res => {

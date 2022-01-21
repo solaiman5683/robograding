@@ -24,7 +24,9 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path='*' element={<Navigate to='dashboard' />} />
-					<Route path='/auth/*' element={<Auth />}>
+					  <Route path='/auth/*' element={<Auth />}>
+						<Route path='*' element={<Navigate to='sign-up' />} />
+						  
 						<Route path='sign-in' element={<SignIn />} />
 						<Route path='sign-up' element={<SignUp />} />
 					</Route>
