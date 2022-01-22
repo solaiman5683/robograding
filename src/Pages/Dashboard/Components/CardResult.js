@@ -15,7 +15,7 @@ const CardResult = ({
 	handleImage,
 }) => {
 	return (
-		<div className='card-result'>
+		<div className='card-result' style={{overflow:'scroll'}}>
 			<p>41,094 results</p>
 			<p>
 				Can't find your card?{' '}
@@ -25,10 +25,11 @@ const CardResult = ({
 			</p>
 			<Modal
 				open={open}
+				sx={{overflow:'scroll'}}
 				onClose={() => setOpen(false)}
 				aria-labelledby='modal-modal-title'
 				aria-describedby='modal-modal-description'>
-				<Box sx={{}} className='add-card-modal'>
+				<Box sx={{width:{xs:"95%", md:'70%', lg:'60%', xlg:'50%'}}} className='add-card-modal'>
 					<Typography
 						id='modal-modal-title'
 						variant='h6'

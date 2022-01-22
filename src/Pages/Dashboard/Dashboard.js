@@ -24,7 +24,7 @@ const Dashboard = () => {
 				<Grid container>
 					<Grid
 						item
-						md={4}
+						md={3}
 						sm={12}
 						sx={{
 							display: { sm: 'none', xs: 'none', md: 'block' },
@@ -90,7 +90,7 @@ const Dashboard = () => {
 							coomingSoon={true}
 						/>
 					</Grid>
-					<Grid item md={8} sm={12} sx={{ p: 2, mt: { sm: 4, xs: 4 } }}>
+					<Grid item md={9} sm={12} sx={{ px: 2, mt: { sm: 4, xs: 4, md:0 } }}>
 						<Outlet />
 					</Grid>
 				</Grid>
@@ -120,7 +120,7 @@ const Dashboard = () => {
 							</div>
 						</Grid>
 						<Grid item sm={8} xs={7}>
-							<Typography variant='h6'>Sulaiman Hosain</Typography>
+							<Typography variant='h6'>{ user?.displayName ? user.displayName : 'John Doe' }</Typography>
 							<a href='/' className='signout'>
 								SIGN OUT
 							</a>
