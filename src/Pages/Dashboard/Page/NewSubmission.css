@@ -1,0 +1,39 @@
+.service-text h3 {
+	font-size: 24px;
+	font-style: normal;
+	text-align: left;
+	font-family: Roboto;
+	font-weight: 400;
+	line-height: 36px;
+	margin-bottom: 6px;
+	letter-spacing: 0px;
+}
+.service-text p {
+	color: #212121;
+	font-size: 14px;
+	font-style: normal;
+	font-family: Roboto;
+	font-weight: 400;
+	line-height: 20px;
+	margin-bottom: 32px;
+	letter-spacing: 0.2px;
+}
+.left h5 {
+	color: rgba(0, 0, 0, 0.87);
+	font-size: 16px;
+	transform: translateZ(0);
+	font-style: normal;
+	font-family: Roboto;
+	font-weight: bold;
+	line-height: 24px;
+	letter-spacing: 0.2px;
+}
+
+.text-sm {
+	font-size: 14px !important;
+}
+.edit-btn {
+	color: #20bfb8;
+    margin-left: 12px !important;
+    cursor: pointer;
+}
