@@ -310,6 +310,9 @@ const NewSubmission = () => {
 									</div>
 									<hr />
 									<h4>Shipping Address</h4>
+									<small className='text-muted'>
+										Required filds are marked with (*)
+									</small>
 									<ShippingForm setFormData={setFormData} />
 								</Grid>
 								<Grid item xs={12} sm={12} md={4}>
@@ -564,12 +567,68 @@ const NewSubmission = () => {
 							Back
 						</Button>
 						<Button
-							className='next-btn'
+							disabled={
+								step === 2
+									? !cards.length
+										? true
+										: false
+									: (
+											step === 3
+												? !(
+														formData.firstName &&
+														formData.lastName &&
+														formData.address &&
+														formData.phone
+												  )
+													? true
+													: false
+												: false
+									  )
+									? true
+									: false
+							}
+							className={`next-btn ${
+								step === 2
+									? !cards.length
+										? 'disabled'
+										: ''
+									: (
+											step === 3
+												? !(
+														formData.firstName &&
+														formData.lastName &&
+														formData.address &&
+														formData.phone
+												  )
+													? 'disabled'
+													: ''
+												: ''
+									  )
+									? 'disabled'
+									: ''
+							}`}
 							onClick={() =>
 								setStep(step => (step < 5 ? (step += 1) : (step = 5)))
 							}>
 							Next
 						</Button>
+						{/* {step === 2
+							? !cards.length
+								? 'disabled'
+								: ''
+							: (
+									step === 3
+										? !(
+												formData.firstName &&
+												formData.lastName &&
+												formData.address
+										  )
+											? 'disabled'
+											: ''
+										: ''
+							  )
+							? 'disabled'
+							: ''} */}
 					</div>
 				</Container>
 			</div>

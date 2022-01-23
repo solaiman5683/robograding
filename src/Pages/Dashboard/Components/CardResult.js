@@ -52,7 +52,7 @@ const CardResult = ({
 													type='file'
 													name='image'
 													hidden
-													onClick={handleImage}
+													onChange={handleImage}
 												/>
 												<svg
 													className='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'
@@ -90,7 +90,7 @@ const CardResult = ({
 															type='file'
 															name='image'
 															hidden
-															onClick={handleImage}
+															onChange={handleImage}
 														/>
 													</Button>
 												</div>

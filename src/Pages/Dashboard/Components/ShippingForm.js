@@ -5,9 +5,10 @@ const ShippingForm = ({ setFormData }) => {
 		<form className='shipping-form'>
 			<div className='name'>
 				<div>
-					<label>First Name</label>
+					<label>First Name*</label>
 					<br />
 					<input
+						required
 						type='text'
 						name='firstName'
 						onChange={e =>
@@ -17,9 +18,10 @@ const ShippingForm = ({ setFormData }) => {
 					/>
 				</div>
 				<div>
-					<label>Last Name</label>
+					<label>Last Name*</label>
 					<br />
 					<input
+						required
 						type='text'
 						name='lastName'
 						onChange={e =>
@@ -31,9 +33,10 @@ const ShippingForm = ({ setFormData }) => {
 			</div>
 			<div className='address'>
 				<div>
-					<label>Adress</label>
+					<label>Adress*</label>
 					<br />
 					<input
+						required
 						type='text'
 						name='address'
 						onChange={e =>
@@ -77,7 +80,13 @@ const ShippingForm = ({ setFormData }) => {
 						onChange={e =>
 							setFormData(form => ({ ...form, state: e.target.value }))
 						}>
-						<option value=''>Select a State</option>
+						<option value='' className='form-control'>Select a State</option>
+						<option value='' className='form-control'>AL</option>
+						<option value='' className='form-control'>AK</option>
+						<option value='' className='form-control'>AS</option>
+						<option value='' className='form-control'>CA</option>
+						<option value='' className='form-control'>CO</option>
+						<option value='' className='form-control'>CT</option>
 					</select>
 				</div>
 				<div>
@@ -94,11 +103,12 @@ const ShippingForm = ({ setFormData }) => {
 				</div>
 			</div>
 			<div className='phone'>
-				<label>Phone</label>
+				<label>Phone*</label>
 				<br />
 				<input
 					type='text'
 					name='apt'
+					required
 					onChange={e =>
 						setFormData(form => ({ ...form, phone: e.target.value }))
 					}

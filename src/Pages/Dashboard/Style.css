@@ -20,15 +20,15 @@
 	justify-content: space-between;
 }
 .link a {
-    display: flex !important;
-    color: rgba(0, 0, 0, 0.54);
-    width: 100%;
-    font-size: 15px;
-    font-weight: normal;
-    font-weight: 400;
-    /* font-size: 1rem; */
-    line-height: 1.5;
-    /* letter-spacing: 0.00938em; */
+	display: flex !important;
+	color: rgba(0, 0, 0, 0.54);
+	width: 100%;
+	font-size: 15px;
+	font-weight: normal;
+	font-weight: 400;
+	/* font-size: 1rem; */
+	line-height: 1.5;
+	/* letter-spacing: 0.00938em; */
 }
 .link a:hover {
 	text-decoration: none;
@@ -218,6 +218,12 @@
 	border-radius: 4px;
 	font-size: 1rem !important;
 }
+.next-btn.disabled {
+	cursor: not-allowed !important;
+	color: rgba(0, 0, 0, 0.26) !important;
+	box-shadow: none !important;
+	background-color: rgba(0, 0, 0, 0.12) !important;
+}
 .content {
 	padding: 40px 0;
 }
@@ -240,7 +246,7 @@
 .service-item {
 	width: 100%;
 	display: flex;
-	
+
 	margin: 10px 0 !important;
 	justify-content: space-between;
 	padding: 15px !important;
@@ -268,25 +274,25 @@
 	width: 50%;
 	text-align: right;
 }
-.service-item .right p{
+.service-item .right p {
 	margin-bottom: 0px;
 	font-size: 14px;
-    font-style: normal;
-    text-align: right;
-    font-family: Roboto;
-    font-weight: normal;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+	font-style: normal;
+	text-align: right;
+	font-family: Roboto;
+	font-weight: normal;
+	line-height: 20px;
+	letter-spacing: 0.2px;
 }
-.service-item .right span{
+.service-item .right span {
 	color: rgba(0, 0, 0, 0.54);
-    font-size: 12px;
-    font-style: normal;
-    text-align: right;
-    font-family: Roboto;
-    font-weight: normal;
-    line-height: 16px;
-    letter-spacing: 0.2px;
+	font-size: 12px;
+	font-style: normal;
+	text-align: right;
+	font-family: Roboto;
+	font-weight: normal;
+	line-height: 16px;
+	letter-spacing: 0.2px;
 }
 
 /* Cards */
@@ -477,34 +483,34 @@ tr:nth-child(even) {
 	margin: 0 auto;
 	border: 1px solid #ddd;
 }
-.summary h4{
+.summary h4 {
 	color: rgba(0, 0, 0, 0.87);
-    font-size: 16px;
-    font-style: normal;
-    font-family: Roboto;
-    font-weight: 500;
-    line-height: 24px;
-    padding-left: 16px;
-    letter-spacing: 0.1px;
+	font-size: 16px;
+	font-style: normal;
+	font-family: Roboto;
+	font-weight: 500;
+	line-height: 24px;
+	padding-left: 16px;
+	letter-spacing: 0.1px;
 }
-.summary h5{
+.summary h5 {
 	color: rgba(0, 0, 0, 0.87);
-    font-size: 14px;
-    font-style: normal;
-    font-family: Roboto;
-    font-weight: normal;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+	font-size: 14px;
+	font-style: normal;
+	font-family: Roboto;
+	font-weight: normal;
+	line-height: 20px;
+	letter-spacing: 0.2px;
 }
-.summary p{
+.summary p {
 	color: rgba(0, 0, 0, 0.87);
-    font-size: 14px;
-    font-style: normal;
-    text-align: right;
-    font-family: Roboto;
-    font-weight: 500;
-    line-height: 20px;
-    letter-spacing: 0.2px;
+	font-size: 14px;
+	font-style: normal;
+	text-align: right;
+	font-family: Roboto;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0.2px;
 }
 .summary-header {
 	background-color: #f9f9f9;
@@ -627,46 +633,47 @@ tr:nth-child(even) {
 .review.active {
 	display: block;
 }
-@media (min-width: 1200px){
-h2 {
-    font-size: 1.5rem !important;
-    line-height: 40px !important;
-}}
-.submission-btn a:hover{
+@media (min-width: 1200px) {
+	h2 {
+		font-size: 1.5rem !important;
+		line-height: 40px !important;
+	}
+}
+.submission-btn a:hover {
 	color: #fff !important;
 }
-.login-btn{
+.login-btn {
 	background-color: #20bfb8;
 	color: #fff;
 }
-.login-btn:focus{
+.login-btn:focus {
 	background-color: #188882;
 	color: #fff;
 }
-.card-icon-1 svg{
-	margin-right:0px;
+.card-icon-1 svg {
+	margin-right: 0px;
 }
-.Add-debit input{
+.Add-debit input {
 	width: 100%;
 	background-color: transparent;
-    border: none;
-    outline: none;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 10px;
-    width: 100%;
-    font-size: 1em;
-    line-height: 1.2em;
-    height: 1.2em;
+	border: none;
+	outline: none;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 10px;
+	width: 100%;
+	font-size: 1em;
+	line-height: 1.2em;
+	height: 1.2em;
 }
 .Add-debit {
 	display: flex;
 	margin-top: 40px;
 	margin-bottom: 10px;
 }
-.Add-debit i{
-	color: #515E80;
+.Add-debit i {
+	color: #515e80;
 }
-.card-btn:hover{
+.card-btn:hover {
 	background-color: #188882 !important;
 }
